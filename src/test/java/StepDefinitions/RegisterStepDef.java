@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -25,6 +26,7 @@ public class RegisterStepDef {
     By cityBy=By.xpath("//input[@id='city' and @data-qa='city']");
     By ZipcodeBy=By.xpath("//input[@id='zipcode' and @data-qa='zipcode']");
     By mobileNumberBy=By.xpath("//input[@id='mobile_number' and @data-qa='mobile_number']");
+    By failedMessage= By.xpath("//p[text()='Email Address already exist!']");
 
 
 
@@ -57,8 +59,8 @@ public class RegisterStepDef {
 
     @When("user enter a new name and email address")
     public void userEnterANewNameAndEmailAddress() {
-        Hooks.driver.findElement(userNameSignUpBy).sendKeys("eeeaaaaaaa");
-        Hooks.driver.findElement(emialSignUpBy).sendKeys("eeeaaaaaaa@gmail.com");
+        Hooks.driver.findElement(userNameSignUpBy).sendKeys("eeeaaaaaaaaa");
+        Hooks.driver.findElement(emialSignUpBy).sendKeys("eeeaaaaaaaaa@gmail.com");
 
     }
 
@@ -115,5 +117,16 @@ public class RegisterStepDef {
     }
 
 
+    @When("user enter a new name and existing email address")
+    public void userEnterANewNameAndExistingEmailAddress() {
+        Hooks.driver.findElement(userNameSignUpBy).sendKeys("eeeaaaaaaaaa");
+        Hooks.driver.findElement(emialSignUpBy).sendKeys("eeeaaaaaaaaa@gmail.com");
 
+    }
+
+    @Then("user sees Email Address already exist!")
+    public void userSeesEmailAddressAlreadyExist() {
+
+        Hooks.wait.until(ExpectedConditions.visibilityOf(Hooks.driver.findElement(failedMessage))).isDisplayed();
+    }
 }
