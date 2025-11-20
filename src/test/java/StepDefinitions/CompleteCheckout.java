@@ -30,7 +30,9 @@ public class CompleteCheckout {
 
 
 
-    @Given("user in product page")
+
+
+    @When("user in product page")
     public void userInProductPage() {
         Assert.assertEquals(Hooks.driver.getCurrentUrl(),"https://automationexercise.com/products");
     }
@@ -86,4 +88,10 @@ public class CompleteCheckout {
     }
 
 
+
+    @Then("user sees Cart is empty!")
+    public void userSeesCartIsEmpty() {
+        Assert.assertEquals(Hooks.driver.getCurrentUrl(),"https://automationexercise.com/");
+
+    }
 }
