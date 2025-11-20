@@ -39,7 +39,6 @@ public class AddProductToCart {
 
     @And("Click Add to Cart")
     public void clickAddToCart() {
-       // Hooks.wait.until(ExpectedConditions.visibilityOf(Hooks.driver.findElement(addButton))).click();
         WebElement addWebElemant=Hooks.driver.findElement(addButton);
 
         ((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].click();", addWebElemant);
