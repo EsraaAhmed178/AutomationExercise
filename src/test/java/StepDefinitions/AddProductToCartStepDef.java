@@ -1,6 +1,5 @@
 package StepDefinitions;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-public class AddProductToCart {
+public class AddProductToCartStepDef {
 
     By productBy=By.xpath("//a[@href='/products']");
     By targetProduct=By.xpath("//img[@alt='ecommerce website products']");

@@ -1,8 +1,6 @@
 package StepDefinitions;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -11,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-public class CompleteCheckout {
+public class CompleteCheckoutStepDef {
 
     By viewCartBy= By.xpath("//a[@href='/view_cart']");
     By checkoutBy=By.xpath("//a[contains(text(),'Proceed To Checkout')]");
