@@ -38,7 +38,7 @@ public class RegisterStepDef {
     @When("user enter a new name and email address")
     public void userEnterANewNameAndEmailAddress() {
         signupLoginPage.userEnterNameSingup("esraa");
-        signupLoginPage.userEnterEmialingup("esraa@gmail.com");
+        signupLoginPage.userEnterEmialingup("esraaaaaaaaaaaa@gmail.com");
 
     }
 
@@ -76,13 +76,13 @@ public class RegisterStepDef {
 
     @Then("“ACCOUNT CREATED!” message appears")
     public void accountCREATEDMessageAppears() {
-        Assert.assertEquals(Hooks.driver.getCurrentUrl(),"https://automationexercise.com/account_created");
+        Assert.assertTrue(accountCreatedPage.accountCREATEDMessageAppears());
 
     }
 
     @When("user enter a new name and existing email address")
     public void userEnterANewNameAndExistingEmailAddress() {
-        signupLoginPage.userEnterANewNameAndExistingEmailAddress("Ahmed","esraa@gmail.com");
+        signupLoginPage.userEnterANewNameAndExistingEmailAddress("Ahmed","esraaaaa@gmail.com");
 
     }
 

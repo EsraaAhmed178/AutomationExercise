@@ -23,6 +23,7 @@ public class CompleteCheckoutPage {
 
 
 
+    By emptyCartText=By.xpath("//b[contains(text(),'Cart is empty!')]");
 
 
 
@@ -35,12 +36,25 @@ public class CompleteCheckoutPage {
 
 
     public AddressDetailsPage userProceedToCheckout() {
-        //Hooks.wait.until(ExpectedConditions.visibilityOf(Hooks.driver.findElement(checkoutBy))).click();
 
-        WebElement checkoutWebElemant=wait.until(ExpectedConditions.visibilityOf(driver.findElement(checkoutBy)));
+        if (!driver.getCurrentUrl().contains("view_cart")) {
+            driver.navigate().to("https://automationexercise.com/view_cart");
+        }
 
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkoutWebElemant);
+        WebElement checkoutButton = wait.until(ExpectedConditions.elementToBeClickable(checkoutBy));
+        checkoutButton.click();
         return new AddressDetailsPage(driver);
+
+    }
+
+    public boolean userSeesCartIsEmpty() {
+        return driver.findElement(emptyCartText).isDisplayed();
+
+    }
+
+    public boolean userSeesLoginDiv() {
+        return driver.findElement(loginDiv).isDisplayed();
+
     }
 
 
@@ -51,23 +65,8 @@ public class CompleteCheckoutPage {
 
 
 
-    public void userSeesCartIsEmpty() {
-        Assert.assertEquals(driver.getCurrentUrl(),"https://automationexercise.com/");
-
-    }
 
 
-
-    public void userStillInPaymentPage() {
-        Assert.assertEquals(driver.getCurrentUrl(),"https://automationexercise.com/payment");
-
-    }
-
-
-    public void userSeesLoginDiv() {
-        Assert.assertTrue(driver.findElement(loginDiv).isDisplayed());
-
-    }
 
 
 

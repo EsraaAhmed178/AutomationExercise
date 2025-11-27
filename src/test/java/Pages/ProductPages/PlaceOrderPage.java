@@ -2,6 +2,7 @@ package Pages.ProductPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class PlaceOrderPage {
     WebDriver driver;
@@ -38,6 +39,11 @@ public class PlaceOrderPage {
         driver.findElement(cvcBy).sendKeys("");
         driver.findElement(expritionMonthOfCardBy).sendKeys("");
         driver.findElement(expritionYearOfCardBy).sendKeys("");
+
+    }
+
+    public void userStillInPaymentPage() {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://automationexercise.com/payment");
 
     }
 }

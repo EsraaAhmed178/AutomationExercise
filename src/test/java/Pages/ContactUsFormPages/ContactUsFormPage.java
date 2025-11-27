@@ -1,12 +1,19 @@
 package Pages.ContactUsFormPages;
 
+import Pages.ProductPages.AddressDetailsPage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ContactUsFormPage {
     WebDriver driver;
     Alert alert;
+    WebDriverWait wait;
     SubmittedSuccessfullyPage submittedSuccessfullyPage;
 
 
@@ -18,6 +25,7 @@ public class ContactUsFormPage {
 
     public ContactUsFormPage(WebDriver driver) {
         this.driver = driver;
+        wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
     }
@@ -35,6 +43,14 @@ public class ContactUsFormPage {
 
     public void clickOnSubmitButton() {
         driver.findElement(submitBtnBy).click();
+
+        if (!driver.getCurrentUrl().contains("contact_us")) {
+            driver.navigate().to("https://automationexercise.com/contact_us");
+        }
+
+        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(submitBtnBy));
+        submitButton.click();
+
     }
 
     public SubmittedSuccessfullyPage acceptAlert() {

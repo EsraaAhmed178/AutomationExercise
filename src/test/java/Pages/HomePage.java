@@ -1,6 +1,5 @@
 package Pages;
 
-import Pages.AllProductsAndProductDetails.AllProductsPage;
 import Pages.ContactUsFormPages.ContactUsFormPage;
 import Pages.ProductPages.ProductPage;
 import org.openqa.selenium.By;
@@ -12,7 +11,6 @@ public class HomePage {
     ProductPage productPage;
     ContactUsFormPage contactUsFormPage;
     TestCasesPage testCasesPage;
-    AllProductsPage allProductsPage;
     LogoutPage logoutPage;
 
 
@@ -21,7 +19,8 @@ public class HomePage {
     By contactUsBtn=By.xpath("//a[@href='/contact_us']");
     By testCaseBtn=By.xpath("//a[@href='/test_cases']");
     By logoutBy=By.xpath("//a[@href='/logout']");
-    By product2By=By.xpath("//a[@href='/products']");
+    By cartBy=By.xpath("//a[@href='/view_cart']");
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -54,10 +53,10 @@ public class HomePage {
         return new LogoutPage(driver);
     }
 
-    public AllProductsPage goToAllProductsPage(){
-        driver.findElement(product2By).click();
-        return new AllProductsPage(driver);
-    }
+
+
+
+
 
 
 
