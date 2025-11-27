@@ -24,15 +24,6 @@ Feature: Add Products to Cart And Complete Checkout Functionality
 
 
 
-  #Scenario: Verify That User Can Complete Checkout
-   # Given user in product page
-    #When user click on View Cart
-    #Then user Proceed to Checkout
-    #And user Validate address
-    #And user click on Place Order
-    #And user Enter payment details
-    #Then user sees “Your order has been placed successfully!”
-
 
 
   Scenario: Verify That User Cannot Complete Checkout with empty cart
@@ -43,6 +34,7 @@ Feature: Add Products to Cart And Complete Checkout Functionality
     And click on Login button
     Then User sees “Logged in as <username>"
     When user in home page
+    And user click on Products
     Then user click on View Cart
     And user sees Cart is empty!
 
@@ -63,7 +55,6 @@ Feature: Add Products to Cart And Complete Checkout Functionality
     Then Product added message displayed
 
 
-    When user in product page
     When user click on View Cart
     Then user Proceed to Checkout
     And user Validate address
@@ -82,12 +73,9 @@ Feature: Add Products to Cart And Complete Checkout Functionality
     Then user Hover over any product
     And Click Add to Cart
     Then Product added message displayed
-
-
-    When user in product page
     When user click on View Cart
-    When user Proceed to Checkout
-    And user sees login Div
+    And user Proceed to Checkout
+    Then user sees login Div
 
 
 
