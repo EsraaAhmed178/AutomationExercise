@@ -42,7 +42,7 @@ public class ContactUsFormPage {
     }
 
     public void clickOnSubmitButton() {
-        driver.findElement(submitBtnBy).click();
+        //driver.findElement(submitBtnBy).click();
 
         if (!driver.getCurrentUrl().contains("contact_us")) {
             driver.navigate().to("https://automationexercise.com/contact_us");
