@@ -8,4 +8,4 @@ Feature: Logout Functionality
     And click on Login button
     Then  User sees “Logged in as <username>"
     When user click on logout
-    Then user Redirec t to Login Signup page
+    Then user Redirect to Login Signup page
