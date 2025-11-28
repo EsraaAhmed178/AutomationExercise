@@ -38,7 +38,7 @@ public class RegisterStepDef {
     @When("user enter a new name and email address")
     public void userEnterANewNameAndEmailAddress() {
         signupLoginPage.userEnterNameSingup("esraa");
-        signupLoginPage.userEnterEmialingup("esraaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com");
+        signupLoginPage.userEnterEmialingup("esraaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com");
 
     }
 
